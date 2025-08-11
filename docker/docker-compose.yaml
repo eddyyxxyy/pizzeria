@@ -1,0 +1,19 @@
+name: pizzeria-app
+
+services:
+  database:
+    image: bitnami/postgresql:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+networks:
+  pizzeria-network:
+    driver: bridge
